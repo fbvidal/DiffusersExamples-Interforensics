@@ -6,7 +6,7 @@ import requests
 pipe = StableDiffusionImageVariationPipeline.from_pretrained(
     "lambdalabs/sd-image-variations-diffusers", revision="v2.0"
 )
-#pipe = pipe.to("cuda")
+pipe = pipe.to("cuda")
 
 url = "https://lh3.googleusercontent.com/y-iFOHfLTwkuQSUegpwDdgKmOjRSTvPxat63dQLB25xkTs4lhIbRUFeNBWZzYf370g=s1200"
 
