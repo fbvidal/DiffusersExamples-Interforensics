@@ -7,6 +7,6 @@ pipe = DiffusionPipeline.from_pretrained(repo_id, torch_dtype=torch.float16, rev
 pipe.scheduler = DPMSolverMultistepScheduler.from_config(pipe.scheduler.config)
 pipe = pipe.to("cuda")
 
-prompt = "High quality colored photo of Madeleine McCann with 20 years old."
-image = pipe(prompt, num_inference_steps=250).images[0]
+prompt = "High quality photo in color of Madeleine McCann with 20 years old."
+image = pipe(prompt, num_inference_steps=2500).images[0]
 image.save("madmccann-color.png")
