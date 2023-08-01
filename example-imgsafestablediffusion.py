@@ -1,9 +1,12 @@
+from diffusers import DiffusionPipeline, DPMSolverMultistepScheduler
 import torch
-from diffusers import StableDiffusionPipelineSafe
 
-pipeline = StableDiffusionPipelineSafe.from_pretrained(
-    "AIML-TUDA/stable-diffusion-safe", torch_dtype=torch.float16
-)
-prompt = "the four horsewomen of the apocalypse, painting by tom of finland, gaston bussiere, craig mullins, j. c. leyendecker"
-image = pipeline(prompt=prompt, **SafetyConfig.MEDIUM).images[0]
-image["images"][0].save("resultsafestablediff.jpg")
+repo_id = "stabilityai/stable-diffusion-2-base"
+pipe = DiffusionPipeline.from_pretrained(repo_id, torch_dtype=torch.float16, revision="fp16")
+
+pipe.scheduler = DPMSolverMultistepScheduler.from_config(pipe.scheduler.config)
+pipe = pipe.to("cuda")
+
+prompt = "High quality photo of an astronaut riding a horse in space"
+image = pipe(prompt, num_inference_steps=25).images[0]
+image.save("astronaut.png")
