@@ -9,4 +9,4 @@ pipe = pipe.to("cuda")
 
 prompt = "High quality photo of Madeleine MacCann with 20 years old."
 image = pipe(prompt, num_inference_steps=25).images[0]
-image.save("astronaut.png")
+image.save("madmccann.png")
