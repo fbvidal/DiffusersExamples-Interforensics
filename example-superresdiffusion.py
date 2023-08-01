@@ -2,7 +2,7 @@ import requests
 from PIL import Image
 from io import BytesIO
 from diffusers import StableDiffusionUpscalePipeline
-import torch
+import torch 
 
 # load model and scheduler
 model_id = "stabilityai/stable-diffusion-x4-upscaler"
