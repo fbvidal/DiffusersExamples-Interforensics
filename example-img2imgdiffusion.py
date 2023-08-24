@@ -9,6 +9,6 @@ pipe = pipe.to("cuda")
 url = "https://f.rpp-noticias.io/2021/06/28/1113348e46dxlcxoai3tp7jpg.jpg"
 
 init_image = load_image(url).convert("RGB")
-prompt = "a real face photo of Mark Zuckerberg."
+prompt = "a coloured human frontal face photo of Mark Zuckerberg."
 image = pipe(prompt, image=init_image).images[0]
 image.save("sketchedface.png")
