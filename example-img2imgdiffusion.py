@@ -9,6 +9,6 @@ pipe = pipe.to("cuda")
 url = "https://media.wired.com/photos/592676467034dc5f91beb80e/master/w_2240,c_limit/MarkZuckerberg.jpg"
 
 init_image = load_image(url).convert("RGB")
-prompt = "transform in a coloured person of Mark Zuckerberg."
+prompt = "a photo of a 30 years old male caucasian guy with dark blonde hair, brown eyes, slim face, and no beard. He is smiling and looking at the camera with his eyes."
 image = pipe(prompt, image=init_image).images[0]
 image.save("sketchedface.png")
