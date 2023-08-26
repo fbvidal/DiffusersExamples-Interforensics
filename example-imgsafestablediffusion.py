@@ -8,5 +8,5 @@ pipe.scheduler = DPMSolverMultistepScheduler.from_config(pipe.scheduler.config)
 pipe = pipe.to("cuda")
 
 prompt = "Madeleine McCann with 20 years old."
-image = pipe(prompt, num_inference_steps=5000).images[0]
+image = pipe(prompt, num_inference_steps=5000).images[1]
 image.save("madmccann-age-20-5000it.png")
